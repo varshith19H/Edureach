@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoring Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8tt9oiAMNdIPFkAQogNoghd8GuICxI91Sg&s" alt="EduReach Logo">
+            <span>EduReach</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="course.html">Courses</a></li>
+                <li><a href="#">Mentor Support</a></li>
+                <li><a href="#">Offline Library</a></li>
+                <li><a href="login.html">Account</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body class="bg-gray-100 p-6 font-serif">
+    
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Left Section -->
+        <div class="md:col-span-2">
+            <!-- Conversations -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Your Conversations</h2>
+                <div class="mt-4 space-y-3">
+                    <div class="p-4 bg-blue-100 rounded flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full" alt="Dr. Sarah Johnson">
+                        <div>
+                            <p class="font-semibold">Dr. Sarah Johnson - Mathematics</p>
+                            <p class="text-sm">I've reviewed your solution to the algebra problem. You're on the right track!</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/47.jpg" class="w-12 h-12 rounded-full" alt="Prof. Michael Chen">
+                        <div>
+                            <p class="font-semibold">Prof. Michael Chen - Science</p>
+                            <p class="text-sm">Let me know if you have any questions about the experiment we discussed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ask a Question -->
+            <div class="bg-white p-6 mt-4 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Ask a Question</h2>
+                <textarea id="questionInput" class="w-full p-2 border rounded mt-2" placeholder="Type your question here..."></textarea>
+                <button onclick="sendQuestion()" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Send Question</button>
+            </div>
+            
+            <!-- Scheduled Sessions -->
+            <div class="bg-white p-6 mt-4 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Scheduled Sessions</h2>
+                <div class="mt-4 space-y-3">
+                    <div class="p-4 bg-gray-100 rounded">
+                        <p class="font-semibold">Mathematics - Algebra Help</p>
+                        <p class="text-sm">Dr. Sarah Johnson</p>
+                        <p class="text-xs">October 15, 2025 | 4:00 PM - 4:45 PM</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded">
+                        <p class="font-semibold">Science - Physics Concepts</p>
+                        <p class="text-sm">Prof. Michael Chen</p>
+                        <p class="text-xs">October 18, 2025 | 10:00 AM - 10:45 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Section -->
+        <div>
+            <!-- Available Mentors -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Available Mentors</h2>
+                <div class="mt-4 space-y-3">
+                    <div class="p-4 bg-gray-100 rounded flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-12 h-12 rounded-full" alt="Emma Rodriguez">
+                        <div>
+                            <p class="font-semibold">Emma Rodriguez - Literature</p>
+                            <p class="text-xs">Available now</p>
+                            <button class="text-blue-500 mt-1">Start Conversation →</button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/39.jpg" class="w-12 h-12 rounded-full" alt="Dr. James Wilson">
+                        <div>
+                            <p class="font-semibold">Dr. James Wilson - History</p>
+                            <p class="text-xs">Available in 2 hours</p>
+                            <button class="text-blue-500 mt-1">Start Conversation →</button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/25.jpg" class="w-12 h-12 rounded-full" alt="Lisa Patel">
+                        <div>
+                            <p class="font-semibold">Lisa Patel - Computer Science</p>
+                            <p class="text-xs">Available tomorrow</p>
+                            <button class="text-blue-500 mt-1">Start Conversation →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- How Mentoring Works -->
+            <div class="bg-white p-6 mt-4 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">How Mentoring Works</h2>
+                <ul class="list-disc list-inside mt-2 text-sm space-y-1">
+                    <li>Ask questions about any subject you're learning</li>
+                    <li>Get matched with a qualified volunteer mentor</li>
+                    <li>Receive guidance through messages or sessions</li>
+                    <li>Save conversations to review offline</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function sendQuestion() {
+            let question = document.getElementById("questionInput").value;
+            if (question.trim() === "") {
+                alert("Please enter a question.");
+                return;
+            }
+            alert("Your question has been sent!");
+            document.getElementById("questionInput").value = "";
+        }
+    </script>
+    <section class="cta fade-in" id="cta">
+        <h2>Ready to Start Learning?</h2>
+        <p>Join thousands of children around the world who are using EduReach to access quality education, regardless of their location or circumstances.</p>
+        <a href="#footer" class="cta-button">Get Started Now</a>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer class="footer fade-in" id="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About EduReach</h3>
+                <p>Providing free educational resources to children in remote and low-income areas, with a focus on accessibility and quality learning experiences.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="course.html">Courses</a></li>
+                    <li><a href="#">Mentor Support</a></li>
+                    <li><a href="#">Offline Library</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:info@edureach.org">info@edureach.org</a></p>
+                <p>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 EduReach. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    
+    <script src="main.js"></script>
+</body>
+</html>

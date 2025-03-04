@@ -1,0 +1,374 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --dark-blue: #03045e;
+    --navy-blue: #5a51f1;
+    --blue: #9333ea;
+    --light-blue: #00b4d8;
+    --aqua: #90e0ef;
+    --white: #ffffff;
+    --gray: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+}
+
+/* Header */
+header {
+    
+    /* background-color: var(--dark-blue); */
+    padding: 15px 0;
+    color: var(--white);
+    --tw-bg-opacity: 1;
+    background-color: rgb(67 56 202 / var(--tw-bg-opacity))
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--aqua);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, var(--navy-blue), var(--blue));
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+    margin : 30px 70px 0px 70px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.primary {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.secondary {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Help Desk Section */
+.help-desk {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+}
+.help-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.help-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+.help-card i {
+    font-size: 40px;
+    color: #6a5acd;
+    margin-bottom: 10px;
+}
+
+/* Courses Section */
+.courses {
+    text-align: center;
+    padding: 50px 20px;
+}
+.course-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+.course-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 400px;
+}
+.course-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.course-card a {
+    color: #6a5acd;
+    text-decoration: none;
+    font-weight: bold;
+}
+.course-card a:hover {
+    text-decoration: underline;
+}
+
+/* Impact Stories Section */
+.impact-stories {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.stories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.story-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.story-card em {
+    font-style: italic;
+    color: #444;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* CTA Section */
+.cta {
+    background: #eef2ff;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cta h2 {
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #635dff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #5148e0;
+}
+
+/* Footer Section */
+.footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #a5c9ff;
+    text-decoration: none;
+}
+
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #a5c9ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Active Animation */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Testimonial Animation */
+.story-card {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.story-card.active {
+    display: block;
+    opacity: 1;
+}
+
+/* CTA Button Animation */
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #635dff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background: #5148e0;
+    transform: scale(1.05);
+}
+
+/* Footer Link Hover */
+.footer-section ul li a {
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
