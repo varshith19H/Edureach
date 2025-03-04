@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | EduTech</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1b5fdc;
+}
+
+.login-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Choose a username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="school">School Name</label>
+                <input type="text" id="school" placeholder="Enter your school name" required>
+            </div>
+            <div class="input-group">
+                <label for="lastQualification">Last Qualification</label>
+                <input type="text" id="lastQualification" placeholder="Enter your last qualification" required>
+            </div>
+            <div class="input-group">
+                <label for="currentQualification">Current Status</label>
+                <select id="currentQualification" required>
+                    <option value="">Select your status</option>
+                    <option value="student">Student</option>
+                    <option value="child">Child</option>
+                    <option value="employee">Employee</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const name = document.getElementById("name").value;
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const school = document.getElementById("school").value;
+    const lastQualification = document.getElementById("lastQualification").value;
+    const currentQualification = document.getElementById("currentQualification").value;
+    const password = document.getElementById("password").value;
+
+    if (name && username && email && school && lastQualification && currentQualification && password) {
+        const signupData = {
+            name: name,
+            username: username,
+            email: email,
+            school: school,
+            lastQualification: lastQualification,
+            currentQualification: currentQualification,
+            password: password
+        };
+
+        fetch("https://localhost:5000/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(signupData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Account created successfully! You can now log in.");
+                window.location.href = "index.html"; // Redirect to login page
+            } else {
+                alert("Signup failed. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again later.");
+        });
+    } else {
+        alert("Please fill in all the required fields.");
+    }
+});
+
+    </script>
+</body>
+</html>
